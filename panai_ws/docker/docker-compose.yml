@@ -1,0 +1,40 @@
+services:
+  panai_sim:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: panai_sim
+    privileged: true
+    network_mode: "host"
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - ../src:/panai_ws/src
+      - panai_data:/data
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    stdin_open: true
+    tty: true
+    profiles:
+      - sim
+
+  panai_hw:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: panai_hw
+    privileged: true
+    network_mode: "host"
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - "/dev/video0:/dev/video0"
+    volumes:
+      - ../src:/panai_ws/src
+      - panai_data:/data
+    stdin_open: true
+    tty: true
+    profiles:
+      - hw
+
+volumes:
+  panai_data:

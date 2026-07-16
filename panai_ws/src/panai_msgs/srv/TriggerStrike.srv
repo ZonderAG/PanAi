@@ -1,0 +1,4 @@
+---
+bool success
+string message
+panai_msgs/AcousticSpectrum spectrum

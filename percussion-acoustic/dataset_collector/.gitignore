@@ -1,0 +1,20 @@
+# PlatformIO & Build folders
+.pio/
+build/
+
+# IDE
+.vscode/
+*.code-workspace
+
+# ESP-IDF auto-generated components & configs
+managed_components/
+dependencies.lock
+sdkconfig
+sdkconfig.uam-esp32s3
+sdkconfig.adafruit_feather_esp32s3
+sdkconfig.old
+
+# OS generated files
+.DS_Store
+Thumbs.db
+UAM_firmware_spec.md 

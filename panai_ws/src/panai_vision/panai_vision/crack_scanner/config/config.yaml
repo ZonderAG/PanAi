@@ -1,0 +1,35 @@
+camera:
+  device_index: 0
+  combined_frame_width: 2560
+  combined_frame_height: 720
+  fps: 30
+  active_lens: "left"
+
+geometry:
+  working_distance_mm: 170
+  laser_camera_baseline_mm: 110
+  laser_angle_deg: 37
+
+calibration:
+  camera_intrinsics_file: "calib/camera_intrinsics.yaml"
+  laser_plane_file: "calib/laser_plane.yaml"
+
+processing:
+  roi_y_min: 250
+  roi_y_max: 550
+  brightness_threshold: 180
+
+serial:
+  port: "/dev/ttyUSB0"
+  baudrate: 115200
+  timeout_sec: 0.1
+  sync_window_ms: 10        # стартовое значение, требует эмпирической проверки
+
+laser_safety:
+  gpio_pin: 17
+  auto_off_on_disconnect: true
+
+runtime:
+  visualization_enabled: true   # false на роботе
+  log_level: "INFO"
+  output_dir: "./scans"
